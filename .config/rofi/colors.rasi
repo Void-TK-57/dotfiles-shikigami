@@ -1,0 +1,11 @@
+* {
+    primary: #F58FA2;
+    secondary: #AF8B75;
+    tertiary: #A06A5E;
+    quartenary: #5C4338;
+    quintenary: #3D302A;
+
+    background: #D9B9A6C0;
+    foreground: #FFF7F8 ;
+    transparent: #00000000;
+}

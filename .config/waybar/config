@@ -1,0 +1,182 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 30, 
+    // "width": 1280,
+    "spacing": 0,
+    
+    //"modules-left": ["sway/mode", "sway/scratchpad", "custom/media"],
+    //"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
+    
+    "modules-left": ["custom/separator", "cpu", "temperature", "custom/separator", "memory", "temperature#gpu", "custom/wrap-left", "custom/pacman-update", "custom/wrap-right"],
+    "modules-center": ["wlr/workspaces"],
+    "modules-right": ["hyprland/language", "pulseaudio", "network", "clock"],
+
+    // Modules configuration
+    "wlr/workspaces": {
+        "rotate": 90,
+        "disable-scroll": true,
+        "active-only": false,
+        "on-click": "activate",
+        "format": "{icon}",
+        "sort-by-number": true,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
+            "default": "󰝦",
+            "active": "󰝥"
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": [],
+        }
+    },
+
+    "network": {
+        "interval": 1,
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": " {bandwidthUpBytes}  {bandwidthDownBytes}"
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%Y-%m-%d}",
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 1,
+        "format": "{percentage}% "
+    },
+    "temperature": {
+        "interval": 1,
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+        "input-filename": "temp1_input",
+        "critical-threshold": 80,
+        "format": "󰇅 {temperatureC}°C {icon}",
+        "format-icons": ["","","","",""]
+    },
+    "temperature#gpu": {
+        "interval": 1,
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:03.1/0000:06:00.0/hwmon",
+        "input-filename": "temp1_input",
+        "critical-threshold": 80,
+        "format": "󰢮 {temperatureC}°C {icon}",
+        "format-icons": ["","","","",""]
+    },
+
+    "cava": {
+        //"cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+        "framerate": 60,
+        "autosens": 1,
+        "sensitivity": 100,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+            "on-click-right": "mode"
+        }
+    },
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} ",
+        "unknown-tag": "N/A",
+        "interval": 1,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} / {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "custom/pacman-update": {
+        "format": " {}",
+        "interval": 3600,
+        "exec": "checkupdates | wc -l",
+        "signal": 8
+      },
+    "custom/wrap-left": {
+        "format": "<b>[</b>"
+    },
+    "custom/wrap-right": {
+        "format": "<b>]</b>"
+    },
+
+    "custom/separator": {
+        "format": " "
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "hyprland/language": {
+        "format": "{shortDescription}",
+    }
+}

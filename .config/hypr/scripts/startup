@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Launch statusbar 
+killall -q waybar; waybar &
+
+# Launch notifications
+killall -q dunst; dunst -conf ~/.config/dunst/dunstrc &
+
+# Launch Wallpaper daemon
+hyprpaper &
+
+# Set cpu governor to performance
+#cpupower frequency-set -g performance &
+
+# launch fcitx5
+#fcitx5 -d &

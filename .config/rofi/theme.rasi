@@ -1,0 +1,114 @@
+@import "colors"
+
+* {
+    width: 600;
+    background-color: @background;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 360px;
+    border: 3px;
+    border-radius: 5px;
+    border-color: @quartenary;
+    background-color: @background;
+}
+
+mainbox {
+    background-color: @background;
+    padding: 5px 10px 0px 10px;
+    spacing: 0;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @secondary;
+    margin: 20px 10px 0px 10px;
+    padding: 10px 15px 5px 15px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+prompt {
+    background-color: @tertiary;
+    padding: 6px;
+    text-color: @quintenary;
+    border-radius: 3px;
+    margin: 10px 0px 10px 0px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 10px 0px 10px 10px;
+    text-color: @foreground;
+    background-color: @secondary;
+}
+
+listview {
+    border: 3px;
+    padding: 0px 15px 0px 15px;
+    margin: 0px 10px 0px 10px;
+    columns: 2;
+    background-color: @secondary;
+    border-radius: 0px 0px 5px 5px;
+    border-color: @secondary;
+}
+
+element {
+    padding: 5px;
+    background-color: @secondary;
+    border-radius: 3px;
+    text-color: @quartenary;
+}
+
+element-icon {
+    size: 22px;
+}
+
+element selected {
+    background-color:  @primary ;
+    text-color: @foreground  ;
+}
+
+mode-switcher {
+    spacing: 0;
+    background-color: @transparent;    
+}
+
+button {
+    padding: 10px;
+    background-color: @transparent;
+    text-color: @tertiary;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @transparent;
+  text-color: @quintenary;
+}
+
+message {
+    background-color: @secondary;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0px;
+    text-color: @secondary;
+}
+
+textbox {
+    padding: 0px;
+    margin: 0px;
+    text-color: @secondary;
+    background-color: @secondary;
+    
+}

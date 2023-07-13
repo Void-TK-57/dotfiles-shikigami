@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+CURRENTLAYOUT=$(hyprctl getoption general:layout | awk 'NR==4{print $2}')
+if [ "$CURRENTLAYOUT" = '"dwindle"' ]
+then
+    hyprctl keyword general:layout master
+else
+    hyprctl keyword general:layout dwindle
+fi
